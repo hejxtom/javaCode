@@ -85,8 +85,8 @@ class Student{
 class CodeBlockTest{
     public static void main(String[] args) {
         Chinese1 chinese1=new Chinese1();
-        System.out.println(Chinese1.desc);
-       System.out.println(chinese1.age);
+        /* System.out.println(Chinese1.desc);
+       System.out.println(chinese1.age);*/
     }
 }
 

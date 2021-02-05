@@ -10,8 +10,11 @@ public class InterfaceTest2 {
     public static void main(String[] args){
         SubClass subClass=new SubClass();
 
+        subClass.myMethod();
+
         //1.接口中定义的静态方法，只能通过接口来调用
         CompareA.method1();
+        //subClass.method1();  //报错
         //2.通过实现类的对象,可以调用接口中的默认方法
         //3.如果子类(或实现类)继承的父类和实现的接口声明了同名同参数的方法，则默认调用父类的方法
         subClass.method2();
@@ -23,6 +26,7 @@ public class InterfaceTest2 {
          *    此时就需要我们必须在实现类中重写此方法
          *
          */
+
     }
 
 }
