@@ -22,7 +22,7 @@ abstract class Template{
     public abstract void code();
 }
 
-class SubTemplate extends Template {
+class SubTemplate extends Template { //求素数
 
     @Override
     public void code() {

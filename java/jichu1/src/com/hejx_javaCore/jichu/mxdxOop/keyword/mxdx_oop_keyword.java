@@ -360,12 +360,12 @@ class Student4 extends PenSon{
  *
  *
  *
- * */
+ */
 class PenSon1{
   public static void main(String[] args) {
       Student4 student4=new Student4();
-      method(student4);   //非匿名的类，非匿名的对象
-      method(new Student4());//非匿名的类，匿名的对象
+      method(student4);   //非匿名的子类，非匿名的对象
+      method(new Student4());//非匿名的子类，匿名的对象
 
       //创建了一个匿名的子类对象：penSon
       PenSon penSon=new PenSon() {
@@ -374,14 +374,14 @@ class PenSon1{
               System.out.println("人可以吃饭!!!");
           }
       };
-      method(penSon);//匿名的类，非匿名的对象
+      method(penSon);//匿名的子类，非匿名的对象
 
       method(new PenSon() {
           @Override
           public void eat() {
               System.out.println("人可以吃饭!!");
           }
-      });  //匿名的类，匿名的对象
+      });  //匿名的子类，匿名的对象
 
 
 

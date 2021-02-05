@@ -17,9 +17,17 @@ package com.hejx_javaCore.jichu.mxdxOop.innerClass;
  *        2.局部内部类(方法内、代码块内、构造器内)(参见InnerClassTest1.java)
  *
  *
+ *   当想要在外部类的静态成员部分使用内部类时，可以考虑内部类声明为静态的
+ *
  */
 public class InnerClassTest {
      public static void main(String[] args){
+         /**
+          *外部类访问成员内部类的成员，需要“内部类.成员”或“内部类对象.成员”的方式
+          *
+          */
+
+
          //实例化静态成员内部类的对象
          Person.Dog dog = new Person.Dog();
          dog.show();
@@ -37,12 +45,19 @@ public class InnerClassTest {
 
 class Person{
     String name="小明";
+    static String name1="小明";
     int age;
 
     public void eat() {
         System.out.println("eat!");
 
     }
+
+    public static void eat1() {
+        System.out.println("eat1!");
+
+    }
+
 
     public void method() {
         //局部内部类
@@ -66,17 +81,23 @@ class Person{
     }
 
     //静态成员内部类
-    static class Dog {
+    static class Dog {  //只能调用外部类的静态变量和方法
         String name;
         int age;
 
-        public void show() {
+        public  void show() {
             System.out.println("卡拉是条狗");
-
+            Person.eat1();
+            System.out.println(Person.name1);
         }
 
     }
-
+/**
+ *  非static的成员内部类中的成员不能声明为static的，只有在外部类或static的成员
+ * 内部类中才可声明static成员
+ *
+ *
+ */
     //非静态成员内部类
     class Bird {
         String name="杜鹃";
@@ -86,12 +107,13 @@ class Person{
 
         public void sing() {
             System.out.println("我是一只小小鸟");
+            //调用外部类方法
             Person.this.eat();//省略写法：eat();
         }
 
         public void dispaly(String name){
-            System.out.println(name);  //调用形参
-            System.out.println(Person.this.name);
+            System.out.println(name);
+            System.out.println(Person.this.name);//调用外部类成员变量
             System.out.println(this.name);
 
         }
